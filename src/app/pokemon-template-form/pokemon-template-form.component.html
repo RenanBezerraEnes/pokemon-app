@@ -10,6 +10,7 @@
       name="isCool"
       [ngModel]="pokemon.isCool"
       [value]="true"
+      #pokemonName="ngModel"
     />Pokemon is cool!
   </label>
   <label>
@@ -33,3 +34,6 @@
 Model: {{ pokemon | json }} <br />
 <br />
 Form: {{ form.value | json }}
+<br />
+ERROR:
+<div *ngIf="!pokemonName.pristine">NOT PRISTINE</div>
