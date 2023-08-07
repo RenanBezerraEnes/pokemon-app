@@ -1,9 +1,6 @@
-<form #form="ngForm">
+<form #form="ngForm" (ngSubmit)="handleSubmit(form)">
   Pokemon Name:
   <input type="text" [(ngModel)]="pokemon.name" name="name" />
-  Pokemon Type:
-  <input type="text" [(ngModel)]="pokemon.type" name="type" />
-
   <label>
     <input
       type="radio"
@@ -43,6 +40,7 @@
       </option>
     </select>
   </label>
+  <button type="submit" [disabled]="!form.valid">POST POKEMON</button>
 </form>
 <br />
 Model: {{ pokemon | json }} <br />
