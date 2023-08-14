@@ -1,12 +1,15 @@
 import {
   AfterViewInit,
   Component,
+  ContentChildren,
   ElementRef,
   OnInit,
+  ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { Pokemon } from 'src/app/models/pokemon';
 import { PokemonService } from 'src/app/services/pokemon-service.service';
+import { PokemonDetailComponent } from '../pokemon-detail/pokemon-detail.component';
 
 @Component({
   selector: 'app-pokemon-list',
@@ -16,11 +19,13 @@ import { PokemonService } from 'src/app/services/pokemon-service.service';
 export class PokemonListComponent implements OnInit, AfterViewInit {
   pokemons!: Pokemon[];
   @ViewChildren('pokemonRef') pokemonRef!: ElementRef;
+  @ViewChild('pokemonTh') pokemonTh!: ElementRef;
+  @ContentChildren(PokemonDetailComponent) contentList!: any;
 
   constructor(private pokemonService: PokemonService) {}
 
   ngAfterViewInit(): void {
-    console.log(this.pokemonRef);
+    this.pokemonTh.nativeElement.innerText = 'Pokemon Name';
   }
 
   handleRemove(event: Pokemon) {
