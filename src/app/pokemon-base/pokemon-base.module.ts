@@ -7,6 +7,8 @@ import { PokemonService } from '../services/pokemon-service.service';
 import { PokemonTemplateFormComponent } from './pokemon-template-form/pokemon-template-form.component';
 import { Routes, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { HighLightTextDirective } from '../_directives/highLightText.directive';
+import { CustomIfDirective } from '../_directives/customIf.directive';
 
 const routes: Routes = [
   {
@@ -23,6 +25,8 @@ const routes: Routes = [
     PokemonListComponent,
     PokemonDetailComponent,
     PokemonTemplateFormComponent,
+    HighLightTextDirective,
+    CustomIfDirective,
   ],
   imports: [
     CommonModule,
@@ -36,5 +40,6 @@ const routes: Routes = [
     PokemonTemplateFormComponent,
   ],
   providers: [PokemonService],
+  bootstrap: [HighLightTextDirective, CustomIfDirective],
 })
 export class PokemonBaseModule {}
