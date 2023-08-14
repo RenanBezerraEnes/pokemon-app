@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { NgIf } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 
 interface Nav {
   link: string;
