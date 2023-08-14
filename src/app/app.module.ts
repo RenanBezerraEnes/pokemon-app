@@ -3,12 +3,14 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { PokemonBaseModule } from './pokemon-base/pokemon-base.module';
-import { PokemonTemplateFormComponent } from './pokemon-template-form/pokemon-template-form.component';
 import { FormsModule } from '@angular/forms';
+import { NotfoundComponent } from './notfound/notfound.component';
+import { HomeComponent } from './home/home.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
-  declarations: [AppComponent, PokemonTemplateFormComponent],
-  imports: [BrowserModule, PokemonBaseModule, FormsModule],
+  declarations: [AppComponent, NotfoundComponent, HomeComponent],
+  imports: [BrowserModule, PokemonBaseModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
