@@ -4,6 +4,7 @@ import {
   ContentChildren,
   ElementRef,
   OnInit,
+  Renderer2,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -22,10 +23,20 @@ export class PokemonListComponent implements OnInit, AfterViewInit {
   @ViewChild('pokemonTh') pokemonTh!: ElementRef;
   @ContentChildren(PokemonDetailComponent) contentList!: any;
 
-  constructor(private pokemonService: PokemonService) {}
+  constructor(
+    private pokemonService: PokemonService,
+    private renderer: Renderer2
+  ) {}
 
   ngAfterViewInit(): void {
+    // Working with the DOM directly using ElementRef and innerText
     this.pokemonTh.nativeElement.innerText = 'Pokemon Name';
+
+    // Working with Renderer2, best approach!
+    const div = this.renderer.createElement('div');
+    const text = this.renderer.createText('Pokemon List');
+    this.renderer.appendChild(div, text);
+    this.renderer.appendChild(this.pokemonTh.nativeElement, div);
   }
 
   handleRemove(event: Pokemon) {
