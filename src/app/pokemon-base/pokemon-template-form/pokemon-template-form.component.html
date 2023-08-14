@@ -41,6 +41,7 @@
     </select>
   </label>
   <button type="submit" [disabled]="!form.valid">POST POKEMON</button>
+  <button type="button" (click)="back()">Go back</button>
 </form>
 <br />
 Model: {{ pokemon | json }} <br />
